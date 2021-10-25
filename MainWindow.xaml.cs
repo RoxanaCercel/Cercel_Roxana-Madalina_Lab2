@@ -34,6 +34,7 @@ namespace Cercel_Roxana_Madalina_Lab2
         private void frmMain_Loaded(object sender, RoutedEventArgs e)
         {
             //Tema
+            myDoughnutMachine = new DoughnutMachine(); //tema
             myDoughnutMachine.DoughnutComplete += new
             DoughnutMachine.DoughnutCompleteDelegate(DoughnutCompleteHandler);
         }
@@ -48,6 +49,9 @@ namespace Cercel_Roxana_Madalina_Lab2
         private void sugarToolStripMenuItem_Click(object sender, RoutedEventArgs e)
         {
             //Tema
+            sugarToolStripMenuItem.IsChecked = true;
+            glazedToolStripMenuItem.IsChecked = false;
+            myDoughnutMachine.MakeDoughnuts(DoughnutType.Sugar);
         }
         //17
         private void DoughnutCompleteHandler()
@@ -63,8 +67,22 @@ namespace Cercel_Roxana_Madalina_Lab2
                     mRaisedSugar++;
                     txtSugarRaised.Text = mRaisedSugar.ToString();
                     break;
-                    //...
-                    // Tema de laborator – completam cu instructiunile necesare
+                //...
+                // Tema de laborator – completam cu instructiunile necesare
+                case DoughnutType.Lemon:
+                    mFilledLemon++;
+                    txtLemonFilled.Text = mFilledLemon.ToString();
+                    break;
+
+                case DoughnutType.Chocolate:
+                    mFilledChocolate++;
+                    txtChocolateFilled.Text = mFilledChocolate.ToString();
+                    break;
+
+                case DoughnutType.Vanilla:
+                    mFilledVanilla++;
+                    txtVanillaFilled.Text = mFilledVanilla.ToString();
+                    break;
             }
         }
 
